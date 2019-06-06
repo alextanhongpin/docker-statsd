@@ -1,10 +1,20 @@
 version: '3.7'
 services:
+        # statsd:
+        #         image: hopsoft/graphite-statsd:latest
+        #         ports:
+        #                 - 127.0.0.1:80:80
+        #                 - 127.0.0.1:81:81
+        #                 - 127.0.0.1:2003-2004:2003-2004
+        #                 - 127.0.0.1:2023-2024:2023-2024
+        #                 - 127.0.0.1:8125:8125/udp
+        #                 - 127.0.0.1:8126:8126
+        # This image is based on the one above.
         statsd:
-                image: hopsoft/graphite-statsd:latest
+                image: graphiteapp/graphite-statsd:1.1.5-11
+                restart: always
                 ports:
                         - 127.0.0.1:80:80
-                        - 127.0.0.1:81:81
                         - 127.0.0.1:2003-2004:2003-2004
                         - 127.0.0.1:2023-2024:2023-2024
                         - 127.0.0.1:8125:8125/udp
